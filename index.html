@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Quake Map</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var esriConfig = {
+            apiKey: "AAPTxy8BH1VEsoebNVZXo8HurM-48FocQ_8vI7zPzVlgd6iDxxWNPqsflSq__h11SXAWzaQU6cMJ0-YnY-Vi7_31P2yVShU4U_dm6SkmgY59S9kODfUfM8Jh2yWAtmls-kJFIhQiw6za-aSVN4hXlyfE43j2polMzXPxzwQrNf8ONNb-depeaNEKozZAIb0vSNOk_WED-zLjYFGmLIq6_sRBPpyP9Wn9GE9Qla7lYyMRtGc.AT1_kKqcUodU"
+        };
+    </script>
+    <!-- Load Calcite components from CDN -->
+    <script type="module" src="https://js.arcgis.com/calcite-components/3.0.3/calcite.esm.js"></script>
+    
+    <!-- Load the ArcGIS Maps SDK for JavaScript from CDN -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.32/esri/themes/light/main.css" />
+    <script src="https://js.arcgis.com/4.32/"></script>
+
+    <!-- Load Map components from CDN-->
+    <script
+      type="module"
+      src="https://js.arcgis.com/map-components/4.32/arcgis-map-components.esm.js"
+    ></script>
+</head>
+<body>
+    <h1>Quake Map by Sunseehray Tirazona</h1>
+    <arcgis-map basemap="arcgis/topographic" center="-118.805, 34.027" zoom="13">
+        <arcgis-zoom position="top-left"></arcgis-zoom>
+    </arcgis-map>
+
+
+    <script>
+        require(["esri/Graphic", "esri/layers/GraphicsLayer"], (Graphic, GraphicsLayer) => {
+  
+            const arcgisMap = document.querySelector("arcgis-map");
+
+            arcgisMap.addEventListener("arcgisViewReadyChange", () => {
+                const graphicsLayer = new GraphicsLayer();
+                arcgisMap.addLayer(graphicsLayer);
+
+                const point = {
+                    //Create a point
+                    type: "point",
+                    longitude: -118.80657463861,
+                    latitude: 34.0005930608889
+                };
+                const simpleMarkerSymbol = {
+                    type: "simple-marker",
+                    color: [226, 119, 40], // Orange
+                    outline: {
+                    color: [255, 255, 255], // White
+                    width: 1
+                    }
+                };
+
+                const pointGraphic = new Graphic({
+                    geometry: point,
+                    symbol: simpleMarkerSymbol
+                });
+                graphicsLayer.add(pointGraphic);
+
+                // Create a line geometry
+                const polyline = {
+                            type: "polyline",
+                            paths: [
+                            [-118.821527826096, 34.0139576938577], //Longitude, latitude
+                            [-118.814893761649, 34.0080602407843], //Longitude, latitude
+                            [-118.808878330345, 34.0016642996246] //Longitude, latitude
+                            ]
+                        };
+                        const simpleLineSymbol = {
+                            type: "simple-line",
+                            color: [226, 119, 40], // Orange
+                            width: 2
+                        };
+
+                        const polylineGraphic = new Graphic({
+                            geometry: polyline,
+                            symbol: simpleLineSymbol
+                        });
+                        graphicsLayer.add(polylineGraphic);
+
+                        // Create a polygon geometry
+                    const polygon = {
+                        type: "polygon",
+                        rings: [
+                        [-118.818984489994, 34.0137559967283], //Longitude, latitude
+                        [-118.806796597377, 34.0215816298725], //Longitude, latitude
+                        [-118.791432890735, 34.0163883241613], //Longitude, latitude
+                        [-118.79596686535, 34.008564864635], //Longitude, latitude
+                        [-118.808558110679, 34.0035027131376] //Longitude, latitude
+                        ]
+                    };
+
+                    const simpleFillSymbol = {
+                        type: "simple-fill",
+                        color: [227, 139, 79, 0.8], // Orange, opacity 80%
+                        outline: {
+                        color: [255, 255, 255],
+                        width: 1
+                        }
+                    };
+
+                    const popupTemplate = {
+                        title: "{Name}",
+                        content: "{Description}"
+                    };
+                    const attributes = {
+                        Name: "Graphic",
+                        Description: "I am a polygon"
+                    };
+
+                    const polygonGraphic = new Graphic({
+                        geometry: polygon,
+                        symbol: simpleFillSymbol,
+
+                        attributes: attributes,
+                        popupTemplate: popupTemplate
+
+
+                    });
+                    graphicsLayer.add(polygonGraphic);
+
+
+            });
+        });
+  
+      </script>
+</body>
+</html>
