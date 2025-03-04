@@ -1,3 +1,12 @@
+// filter
+const quakeFilter = document.getElementById("quakeFilter");
+let filter = quakeFilter.value;
+quakeFilter.addEventListener("change", () => {
+    filter = quakeFilter.value;
+    console.log(filter);
+});
+
+
 // creating graphics layer and graphic point are based from arcgis tutorial
 require(["esri/Graphic", "esri/layers/GraphicsLayer"], (Graphic, GraphicsLayer) => {
   

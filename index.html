@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Quake Map</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Script taken From ArcGIS Tutorial -->
     <script>
         var esriConfig = {
             apiKey: "AAPTxy8BH1VEsoebNVZXo8HurM-48FocQ_8vI7zPzVlgd6iDxxWNPqsflSq__h11SXAWzaQU6cMJ0-YnY-Vi7_31P2yVShU4U_dm6SkmgY59S9kODfUfM8Jh2yWAtmls-kJFIhQiw6za-aSVN4hXlyfE43j2polMzXPxzwQrNf8ONNb-depeaNEKozZAIb0vSNOk_WED-zLjYFGmLIq6_sRBPpyP9Wn9GE9Qla7lYyMRtGc.AT1_kKqcUodU"
@@ -24,7 +25,17 @@
     ></script>
 </head>
 <body>
-    <h1>Quake Map by Sunseehray Tirazona</h1>
+    <header>
+        <h1>Quake Map by Sunseehray Tirazona</h1>
+        <div>
+            <p>Filter quakes</p>
+            <select id="quakeFilter">
+                <option value="all" default>View All</option>
+                <option value="greater">3.5 and above</option>
+                <option value="less">less than 3.5</option>
+            </select>
+        </div>
+    </header>
     <arcgis-map basemap="arcgis/topographic" center="0, 0" zoom="2">
         <arcgis-zoom position="top-left"></arcgis-zoom>
     </arcgis-map>
