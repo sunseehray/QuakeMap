@@ -1,6 +1,6 @@
 # Overview
 
-For this project, I am building a map displaying earthquake data from USGS using ArcGIS. This project called QuakeMap displays earthquake incidents in an area for the past 24 hours. A filter lets the user specify which area to display the information from. If there are incidents, it will be shown by a pin on the map. Clicking on a pin will give more details on the incident in that location.
+For this project, I am building a map displaying earthquake data from USGS using ArcGIS. This project called QuakeMap displays earthquake incidents in an area for the past 24 hours. A filter lets the user specify which magnitude to display. If there are incidents, it will be shown by a graphic point on the map. Clicking on a point will give details on magnitude and place.
 
 [Software Demo Video](https://youtu.be/6eg74PduIbo)
 
