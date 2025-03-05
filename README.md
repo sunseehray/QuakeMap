@@ -14,7 +14,7 @@ Git, GitHub - Version Control
 
 # Useful Websites
 
-* [ArcGIS Maps DSK for JavaScript](https://developers.arcgis.com/javascript/latest/tutorials/display-a-map/)
+* [ArcGIS Maps SDK for JavaScript](https://developers.arcgis.com/javascript/latest/tutorials/display-a-map/)
 * [USGS Earthquake API Documentation](https://earthquake.usgs.gov/fdsnws/event/1/)
 
 # Future Work
